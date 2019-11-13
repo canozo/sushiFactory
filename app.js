@@ -29,6 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/sushi', sushiRouter);
 
+app.get('/react', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client-react', 'build', 'index.html'));
+});
+
 app.get('/react/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client-react', 'build', 'index.html'));
 });
