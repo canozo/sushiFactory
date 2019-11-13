@@ -12,6 +12,7 @@
     *ngFor="let sushi of sushis"
     [sushi]="sushi"
     (deleteSushi)="deleteSushi($event)"
+    (updateSushi)="updateSushi($event)"
   >
   </app-sushi-item>
 </div>

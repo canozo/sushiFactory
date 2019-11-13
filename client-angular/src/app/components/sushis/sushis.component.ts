@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SushiService } from '../../services/sushi.service';
 import { Sushi } from '../../models/Sushi';
+import { SushiUpdate } from 'src/app/models/SushiUpdate';
 
 @Component({
   selector: 'app-sushis',
@@ -25,6 +26,13 @@ export class SushisComponent implements OnInit {
 
   createSushi(sushi: Sushi) {
     this.sushis.push(sushi);
+  }
+
+  updateSushi(sushiData: SushiUpdate) {
+    const index = this.sushis.findIndex(s => s.id === sushiData.id);
+    const sushiRes = this.sushisType.find(s => s.id === sushiData.nuevoTipo);
+    sushiRes.id = sushiData.id;
+    this.sushis[index] = sushiRes;
   }
 
   deleteSushi(sushi: Sushi) {

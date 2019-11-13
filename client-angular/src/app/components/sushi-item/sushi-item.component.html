@@ -1,6 +1,9 @@
 <div>
   <p>
     Rollo #{{ sushi.id }}, {{ sushi.nombre }}
-    <button (click)="onDelete(sushi)">Borrar</button>
+    <button (click)="onDelete()">Borrar</button>{{' '}}
+    <button (click)="onUpdate(0)">California</button>{{' '}}
+    <button (click)="onUpdate(1)">Philadelphia</button>{{' '}}
+    <button (click)="onUpdate(2)">Alaska</button>
   </p>
 </div>

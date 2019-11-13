@@ -30,6 +30,13 @@ export class SushiService {
     return this.http.post(this.sushiUrl, { tipo: id });
   }
 
+  update(id: number, nuevoTipo: number) {
+    return this.http.put(this.sushiUrl, {
+      id,
+      nuevoTipo
+    });
+  }
+
   delete(id: number) {
     const options = {
       headers: new HttpHeaders({
