@@ -13,8 +13,9 @@ const server = http.createServer(app);
 const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-  let mensaje = 'Pon /react o /angular al final de la URL para ver la pagina.<br>';
-  mensaje += 'EJ: https://vanguardia-sushi-factory.herokuapp.com/react/';
+  let mensaje = 'Pon /react o /angular al final de la URL para ver la pagina. EJ:<br>';
+  mensaje += '<a href="https://vanguardia-sushi-factory.herokuapp.com/react/">https://vanguardia-sushi-factory.herokuapp.com/react/</a>';
+  mensaje += '<a href="https://vanguardia-sushi-factory.herokuapp.com/angular/">https://vanguardia-sushi-factory.herokuapp.com/angular/</a>';
   res.send(mensaje);
 });
 
