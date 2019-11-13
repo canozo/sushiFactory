@@ -30,7 +30,9 @@ export class SushisComponent implements OnInit {
 
   updateSushi(sushiData: SushiUpdate) {
     const index = this.sushis.findIndex(s => s.id === sushiData.id);
-    const sushiRes = this.sushisType.find(s => s.id === sushiData.nuevoTipo);
+    const sushiRes = {
+      ...this.sushisType.find(s => s.id === sushiData.nuevoTipo)
+    };
     sushiRes.id = sushiData.id;
     this.sushis[index] = sushiRes;
   }

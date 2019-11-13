@@ -13,8 +13,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SushiService {
-  // sushiUrl: string = 'https://vanguardia-sushi-factory.herokuapp.com/api/sushi';
-  sushiUrl: string = 'http://localhost:5000/api/sushi';
+  sushiUrl: string = 'https://vanguardia-sushi-factory.herokuapp.com/api/sushi';
+  // sushiUrl: string = 'http://localhost:5000/api/sushi';
 
   constructor(private http: HttpClient) { }
 

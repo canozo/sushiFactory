@@ -20,7 +20,7 @@ export class SushiItemCreateComponent implements OnInit {
   onCreate() {
     this.sushiService.create(this.sushi.id)
       .subscribe((res: ResultRes) => {
-        const tempSushi = this.sushi;
+        const tempSushi = { ...this.sushi };
         tempSushi.id = res.insertId;
         this.createSushi.emit(tempSushi)
       });
