@@ -15,12 +15,19 @@ const httpOptions = {
 export class SushiService {
   // sushiUrl: string = 'https://vanguardia-sushi-factory.herokuapp.com/api/sushi';
   sushiUrl: string = 'http://localhost:5000/api/sushi';
-  types: string = '/types';
 
   constructor(private http: HttpClient) { }
 
+  getSushisType(): Observable<Sushi[]> {
+    return this.http.get<Sushi[]>(`${this.sushiUrl}/types`);
+  }
+
   getSushis(): Observable<Sushi[]> {
     return this.http.get<Sushi[]>(this.sushiUrl);
+  }
+
+  create(id: number) {
+    return this.http.post(this.sushiUrl, { tipo: id });
   }
 
   delete(id: number) {

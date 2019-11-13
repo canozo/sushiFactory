@@ -9,6 +9,7 @@ import { Sushi } from '../../models/Sushi';
 })
 export class SushisComponent implements OnInit {
   sushis: Sushi[];
+  sushisType: Sushi[];
 
   constructor(private sushiService: SushiService) { }
 
@@ -16,6 +17,17 @@ export class SushisComponent implements OnInit {
     this.sushiService.getSushis().subscribe(sushis => {
       this.sushis = sushis;
     });
+
+    this.sushiService.getSushisType().subscribe(sushisType => {
+      this.sushisType = sushisType;
+    });
   }
 
+  createSushi(sushi: Sushi) {
+    this.sushis.push(sushi);
+  }
+
+  deleteSushi(sushi: Sushi) {
+    this.sushis = this.sushis.filter(t => t.id !== sushi.id);
+  }
 }

@@ -1,5 +1,17 @@
 <div>
+  <p>Crear sushi!</p>
+  <app-sushi-item-create
+    *ngFor="let sushiT of sushisType"
+    [sushi]="sushiT"
+    (createSushi)="createSushi($event)"
+  >
+  </app-sushi-item-create>
+  <br>
   <p>Listado de Sushis creados!</p>
-  <app-sushi-item *ngFor="let sushi of sushis" [sushi]="sushi">
+  <app-sushi-item
+    *ngFor="let sushi of sushis"
+    [sushi]="sushi"
+    (deleteSushi)="deleteSushi($event)"
+  >
   </app-sushi-item>
 </div>
