@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm install --prefix client-react",
+    "postinstall": "npm install --prefix client-react && npm install --prefix client-angular",
     "start": "node app",
     "server": "nodemon app",
     "client": "npm start --prefix client",
     "react": "concurrently \"npm run server\" \"npm start --prefix client-react\"",
     "angular": "concurrently \"npm run server\" \"npm start --prefix client-angular\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client-react && npm run build --prefix client-react"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client-react && npm run build --prefix client-react && npm run build --prefix client-angular"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",

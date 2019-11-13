@@ -12,7 +12,14 @@ const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT || 5000;
 
+app.get('/', (req, res) => {
+  let mensaje = 'Pon /react o /angular al final de la URL para ver la pagina.<br>';
+  mensaje += 'EJ: https://vanguardia-sushi-factory.herokuapp.com/react/';
+  res.send(mensaje);
+});
+
 app.use(express.static('client-react/build'));
+app.use(express.static('client-angular/dist/client-angular'));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,11 +34,11 @@ app.get('/react/*', (req, res) => {
 });
 
 app.get('/angular', (req, res) => {
-  res.send('Angular Client');
+  res.sendFile(path.resolve(__dirname, 'client-angular', 'dist', 'client-angular', 'index.html'));
 });
 
 app.get('/angular/*', (req, res) => {
-  res.send('Angular Client');
+  res.sendFile(path.resolve(__dirname, 'client-angular', 'dist', 'client-angular', 'index.html'));
 });
 
 server.listen(port, () => console.log(`Servidor corriendo en el puerto ${port}`));
